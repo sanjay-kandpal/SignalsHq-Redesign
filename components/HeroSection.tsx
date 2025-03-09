@@ -2,6 +2,8 @@
 "use client"
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   useEffect(() => {
@@ -36,7 +38,7 @@ const HeroSection = () => {
         setTimeout(() => {
           const animatedSpan = document.querySelector(
             `.heading-text div:nth-child(${line + 1}) .animated-word`
-          );
+          ) as HTMLElement;
           if (animatedSpan) {
             animatedSpan.style.transition = 'all 0.5s ease';
             animatedSpan.style.opacity = '1';
@@ -70,6 +72,28 @@ const HeroSection = () => {
     animateSpecificWords();
     animateVideoThumbnail();
     animateBoxShadow();
+
+    // Animate text on mount
+    const animatedSpan = document.querySelector('.animated-text') as HTMLElement;
+    if (animatedSpan) {
+      animatedSpan.style.transition = 'all 0.5s ease';
+      animatedSpan.style.opacity = '1';
+      animatedSpan.style.transform = 'translateY(0)';
+    }
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (

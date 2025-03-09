@@ -2,22 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import { Zap, Grid, Star, CheckCircle2, FileText, Shield } from 'lucide-react';
 
-type Feature = {
+// Define the feature interface
+interface Feature {
   icon: React.ReactElement;
   title: string;
   description: string;
-};
+}
 
-type Features = {
-  efficiency: Feature[];
-  integration: Feature[];
-  productivity: Feature[];
-};
-
-type TabId = keyof Features;
-
+// Define the features type explicitly
 const FeaturesSection = () => {
-  const [activeTab, setActiveTab] = useState('efficiency');
+  const [activeTab, setActiveTab] = useState<'efficiency' | 'integration' | 'productivity'>('efficiency');
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -35,12 +29,12 @@ const FeaturesSection = () => {
   }, []);
 
   const tabs = [
-    { id: 'efficiency' as TabId, label: 'Efficiency', icon: <Zap size={20} /> },
-    { id: 'integration' as TabId, label: 'Integration', icon: <Grid size={20} /> },
-    { id: 'productivity' as TabId, label: 'Productivity', icon: <Star size={20} /> },
-  ];
+    { id: 'efficiency', label: 'Efficiency', icon: <Zap size={20} /> },
+    { id: 'integration', label: 'Integration', icon: <Grid size={20} /> },
+    { id: 'productivity', label: 'Productivity', icon: <Star size={20} /> },
+  ] as const;
 
-  const features : Features = {
+  const features: Record<'efficiency' | 'integration' | 'productivity', Feature[]> = {
     efficiency: [
       {
         icon: <FileText size={24} />,
