@@ -14,4 +14,33 @@
   .image-container {
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5);
   }
-
+  @keyframes search {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(50%, 50%) scale(1.2);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .animate-search {
+    animation: search 4s infinite ease-in-out;
+  }
+  
+  /* Optional: Add smooth scrolling to the whole page */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Add any required Tailwind animations */
+  @layer utilities {
+    .scale-y-0 {
+      transform: scaleY(0);
+    }
+    .scale-y-100 {
+      transform: scaleY(1);
+    }
+  }
