@@ -48,4 +48,3 @@ yarn dev
 - `npm run start` - Runs the built application
 - `npm run lint` - Runs the linter
 
-## Project Structure
