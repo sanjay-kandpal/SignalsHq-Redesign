@@ -257,8 +257,9 @@ const EnhancedTriangleWheel = () => {
                         onClick={() => setActiveSection(key as SectionName)}
                       >
                         <div 
-                          xmlns="http://www.w3.org/1999/xhtml"
-                          className={`w-full h-full flex items-center justify-center ${isActive ? 'text-white' : section.textColor}`}
+                          className={`w-full h-full flex items-center justify-center ${
+                            isActive ? 'text-white' : section.textColor
+                          }`}
                         >
                           {section.icon}
                         </div>
