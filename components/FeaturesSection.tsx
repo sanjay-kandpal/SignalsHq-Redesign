@@ -2,6 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import { Zap, Grid, Star, CheckCircle2, FileText, Shield } from 'lucide-react';
 
+type Feature = {
+  icon: React.ReactElement;
+  title: string;
+  description: string;
+};
+
+type Features = {
+  efficiency: Feature[];
+  integration: Feature[];
+  productivity: Feature[];
+};
+
+type TabId = keyof Features;
+
 const FeaturesSection = () => {
   const [activeTab, setActiveTab] = useState('efficiency');
 
@@ -21,12 +35,12 @@ const FeaturesSection = () => {
   }, []);
 
   const tabs = [
-    { id: 'efficiency', label: 'Efficiency', icon: <Zap size={20} /> },
-    { id: 'integration', label: 'Integration', icon: <Grid size={20} /> },
-    { id: 'productivity', label: 'Productivity', icon: <Star size={20} /> },
+    { id: 'efficiency' as TabId, label: 'Efficiency', icon: <Zap size={20} /> },
+    { id: 'integration' as TabId, label: 'Integration', icon: <Grid size={20} /> },
+    { id: 'productivity' as TabId, label: 'Productivity', icon: <Star size={20} /> },
   ];
 
-  const features = {
+  const features : Features = {
     efficiency: [
       {
         icon: <FileText size={24} />,
