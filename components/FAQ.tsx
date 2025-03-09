@@ -35,7 +35,7 @@ const FAQSection = () => {
           </h2>
           
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Have questions? We've got answers. For anything else, please reach out to our support team at{' '}
+            Have questions? We&apos;ve got answers. For anything else, please reach out to our support team at{' '}
             <a 
               href="mailto:contact@signalsHQ.io" 
               className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
