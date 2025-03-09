@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 // import Stri  pedBackground from "@/components/StripedBackground";
 import RoiStatsSection from "@/components/RoiStateSection";
 import FeaturesSection from "@/components/FeaturesSection";
+import FAQSection from "@/components/FAQ";
 
 import TriangleWheel from "@/components/TriangleWheel";
 const geistSans = Geist({
@@ -40,6 +41,7 @@ export default function RootLayout({
           <RoiStatsSection />
           <FeaturesSection />
           <TriangleWheel />
+          <FAQSection />
           {/* {children} */}
         {/* </div> */}
       </body>
