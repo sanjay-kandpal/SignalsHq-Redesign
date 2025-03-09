@@ -3,12 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from '../components/Navbar'
 import HeroSection from "@/components/HeroSection";
-// import Stri  pedBackground from "@/components/StripedBackground";
+
 import RoiStatsSection from "@/components/RoiStateSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import FAQSection from "@/components/FAQ";
 
 import TriangleWheel from "@/components/TriangleWheel";
+import Footer from "@/components/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -34,16 +35,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <StripedBackground /> */}
-        {/* <div className="relative z-10"> */}
+        <>
           <Navbar />
           <HeroSection />
           <RoiStatsSection />
           <FeaturesSection />
           <TriangleWheel />
           <FAQSection />
-          {/* {children} */}
-        {/* </div> */}
+          <Footer />    
+        </>
       </body>
     </html>
   );
