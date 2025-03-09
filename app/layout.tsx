@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import HeroSection from "@/components/HeroSection";
 // import Stri  pedBackground from "@/components/StripedBackground";
 import RoiStatsSection from "@/components/RoiStateSection";
+import FeaturesSection from "@/components/FeaturesSection";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Navbar />
           <HeroSection />
           <RoiStatsSection />
+          <FeaturesSection />
           {children}
         {/* </div> */}
       </body>
