@@ -4,8 +4,30 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, CheckCircle2, Star } from 'lucide-react';
 
+// Define the section type
+interface Section {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  textColor: string;
+  borderColor: string;
+  hoverColor: string;
+  fillColor: string;
+}
+
+// Define the sections type
+interface Sections {
+  efficiency: Section;
+  compliance: Section;
+  satisfaction: Section;
+}
+
+// Define valid section names
+type SectionName = keyof Sections;
+
 const EnhancedTriangleWheel = () => {
-  const [activeSection, setActiveSection] = useState('efficiency');
+  const [activeSection, setActiveSection] = useState<SectionName>('efficiency');
   const [isHovering, setIsHovering] = useState(false);
   const [animationVariant, setAnimationVariant] = useState(0);
 
@@ -17,7 +39,7 @@ const EnhancedTriangleWheel = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const sections = {
+  const sections: Sections = {
     efficiency: {
       title: "Efficiency",
       description: "Boost your audit staff efficiency with smart automation. Say goodbye to manual vouching and focus on real risk identification.",
@@ -219,7 +241,7 @@ const EnhancedTriangleWheel = () => {
                         stroke={section.fillColor}
                         strokeWidth="1.5"
                         className="cursor-pointer drop-shadow-md transition-all duration-300"
-                        onClick={() => setActiveSection(key)}
+                        onClick={() => setActiveSection(key as SectionName)}
                         whileHover={{ scale: 1.2 }}
                         animate={currentAnimation.icons}
                         custom={index}
@@ -232,7 +254,7 @@ const EnhancedTriangleWheel = () => {
                         width="24"
                         height="24"
                         className="cursor-pointer"
-                        onClick={() => setActiveSection(key)}
+                        onClick={() => setActiveSection(key as SectionName)}
                       >
                         <div 
                           xmlns="http://www.w3.org/1999/xhtml"
@@ -296,7 +318,7 @@ const EnhancedTriangleWheel = () => {
           {Object.entries(sections).map(([key, section]) => (
             <button
               key={key}
-              onClick={() => setActiveSection(key)}
+              onClick={() => setActiveSection(key as SectionName)}
               className="group flex flex-col items-center"
             >
               <span className={`text-sm font-medium mb-2 ${

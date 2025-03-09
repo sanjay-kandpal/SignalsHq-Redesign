@@ -1,6 +1,17 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 
+
+// Define the props interface for StatRow
+interface StatRowProps {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+  description: string;
+  color: string;
+  duration: number;
+}
+
 const RoiStatsSection = () => {
   return (
     <section className="relative py-20 md:py-32 bg-gray-100">
@@ -54,7 +65,7 @@ const RoiStatsSection = () => {
 };
 
 // StatRow component with water fill animation
-const StatRow = ({ icon, title, value, description, color, duration }) => {
+const StatRow = ({ icon, title, value, description, color, duration }: StatRowProps) => {
   const [fillWidth, setFillWidth] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 

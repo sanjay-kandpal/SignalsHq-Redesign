@@ -2,8 +2,7 @@
 "use client"
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+
 
 const HeroSection = () => {
   useEffect(() => {
@@ -49,7 +48,7 @@ const HeroSection = () => {
     };
 
     const animateVideoThumbnail = () => {
-      const videoThumbnail = document.querySelector('.video-thumbnail');
+      const videoThumbnail = document.querySelector('.video-thumbnail') as HTMLElement;
       if (videoThumbnail) {
         videoThumbnail.style.opacity = '0';
         videoThumbnail.style.transform = 'scale(0.8)';
@@ -63,7 +62,7 @@ const HeroSection = () => {
     };
 
     const animateBoxShadow = () => {
-      const imageContainer = document.querySelector('.image-container');
+      const imageContainer = document.querySelector('.image-container') as HTMLElement;
       if (imageContainer) {
         imageContainer.style.animation = 'boxShadowPulse 2s infinite';
       }
